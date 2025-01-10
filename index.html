@@ -17,7 +17,7 @@
 
 <body class="bg-gray-800">
 
-    <div class="w-[90%] md:w-[60%] lg:w-[40%] mx-auto pt-10 bg-gray-900 p-5 rounded-xl shadow-lg">
+    <div class="w-full max-w-lg mx-auto pt-10 bg-gray-900 p-5 rounded-xl shadow-lg">
         <h1 class="text-white text-center text-3xl font-bold mb-5">Meowiee's Weather Forecast for Five Days</h1>
 
         <!-- Search Section -->
@@ -138,11 +138,11 @@
         let getweathertodom = (data) => {
             getphotoone.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
             getcity.textContent = `${data.name} - ${data.sys.country}`;
-            gettemdata.textContent = `${data.main.temp}°C`;
-            gethumadata.textContent = `${data.main.humidity}%`;
-            getpressdata.textContent = `${data.main.pressure} hPa`;
-            getwindata.textContent = `${data.wind.speed} m/s`;
-            getdes.textContent = `${data.weather[0].description}`;
+            gettemdata.textContent = data.main.temp; // Fixed duplicate °C issue
+            gethumadata.textContent = data.main.humidity;
+            getpressdata.textContent = data.main.pressure;
+            getwindata.textContent = data.wind.speed;
+            getdes.textContent = data.weather[0].description;
         };
 
         let getforecastbycityid = async function (id) {
@@ -171,7 +171,7 @@
                 let temperature = `${forecast.main.temp}°C`;
 
                 let html = `
-                    <div class="w-1/4 p-3 text-center bg-gray-800 rounded-lg shadow-lg">
+                    <div class="w-full p-3 text-center bg-gray-800 rounded-lg shadow-lg">
                         <p class="text-xs text-gray-400">${new Date(forecast.dt_txt).toLocaleString('en', { weekday: 'long' })}</p>
                         <img src="https://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png" class="w-20 mx-auto" alt="">
                         <p class="font-semibold text-lg text-white">${temperature}</p>
@@ -185,3 +185,4 @@
 </body>
 
 </html>
+
