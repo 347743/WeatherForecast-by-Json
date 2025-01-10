@@ -17,13 +17,14 @@
 
 <body class="bg-gray-800">
 
-    <div class="w-full max-w-lg mx-auto pt-10 bg-gray-900 p-5 rounded-xl shadow-lg">
+    <div class="w-[90%] md:w-[60%] lg:w-[40%] mx-auto pt-10 bg-gray-900 p-5 rounded-xl shadow-lg">
         <h1 class="text-white text-center text-3xl font-bold mb-5">Meowiee's Weather Forecast for Five Days</h1>
 
         <!-- Search Section -->
         <form action="" id="form" method="get" class="flex mb-5 justify-center">
-            <input class="w-full px-4 py-3 bg-gray-700 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" type="search"
-                name="search" id="search" placeholder="Search By City">
+            <input
+                class="w-full px-4 py-3 bg-gray-700 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                type="search" name="search" id="search" placeholder="Search By City">
         </form>
 
         <!-- Current Weather -->
@@ -59,14 +60,14 @@
                     </div>
                 </div>
                 <div class="flex items-center">
-                     <i class="fas fa-tachometer-alt text-xl text-yellow-400 mr-2"></i>
+                    <i class="fas fa-tachometer-alt text-xl text-yellow-400 mr-2"></i>
                     <div>
                         <p>Pressure</p>
                         <p class="text-lg font-semibold"><span class="pressdata">--</span> hPa</p>
                     </div>
                 </div>
                 <div class="flex items-center">
-                   <i class="fas fa-info-circle text-xl text-purple-400 mr-2"></i>
+                    <i class="fas fa-info-circle text-xl text-purple-400 mr-2"></i>
                     <div>
                         <p>Description</p>
                         <p class="text-lg font-semibold"><span class="des">--</span></p>
@@ -78,7 +79,7 @@
         <!-- 5-Day Forecast -->
         <div class="w-full text-white bg-gray-700 rounded-lg p-5">
             <p class="font-semibold text-xl mb-4">Next 5 Days Weather Data</p>
-            <div class="flex justify-around items-center flex-wrap gap-5" id="forecast">
+            <div class="flex justify-between items-center flex-wrap gap-2" id="forecast">
                 <!-- Dynamic forecast items will appear here -->
             </div>
         </div>
@@ -135,14 +136,20 @@
             getforcasttodom(getfivedaysdata);
         };
 
+        let dayofweek = (timestamp = new Date().getTime()) => {
+            // return new Date(timestamp).toLocaleDateString('en-EN',{'weekday':'long'});
+            return new Date(timestamp).toLocaleDateString('en-EN', { 'weekday': 'long' });
+        }
+
         let getweathertodom = (data) => {
             getphotoone.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+            getdayname.textContent = dayofweek();
             getcity.textContent = `${data.name} - ${data.sys.country}`;
-            gettemdata.textContent = data.main.temp; // Fixed duplicate °C issue
-            gethumadata.textContent = data.main.humidity;
-            getpressdata.textContent = data.main.pressure;
-            getwindata.textContent = data.wind.speed;
-            getdes.textContent = data.weather[0].description;
+            gettemdata.textContent = `${data.main.temp}`;
+            gethumadata.textContent = `${data.main.humidity}`;
+            getpressdata.textContent = `${data.main.pressure}`;
+            getwindata.textContent = `${data.wind.speed}`;
+            getdes.textContent = `${data.weather[0].description}`;
         };
 
         let getforecastbycityid = async function (id) {
@@ -171,15 +178,18 @@
                 let temperature = `${forecast.main.temp}°C`;
 
                 let html = `
-                    <div class="w-full p-3 text-center bg-gray-800 rounded-lg shadow-lg">
+                    <div class="w-full sm:w-[45%] md:w-1/5 p-1 text-center border rounded-md">
                         <p class="text-xs text-gray-400">${new Date(forecast.dt_txt).toLocaleString('en', { weekday: 'long' })}</p>
                         <img src="https://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png" class="w-20 mx-auto" alt="">
-                        <p class="font-semibold text-lg text-white">${temperature}</p>
+                        <p class="font-semibold text-xs text-white">${temperature}</p>
                     </div>
                 `;
                 getforecast.insertAdjacentHTML("beforeend", html);
             });
+
+
         }
+        weatherbycity("yangon");
     </script>
 
 </body>
