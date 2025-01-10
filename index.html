@@ -17,12 +17,13 @@
 
 <body class="bg-gray-800">
 
-   <div class="container mx-auto p-5 md:p-10">
-        <div class="bg-gray-900 rounded-xl shadow-lg p-5 md:p-10 max-w-5xl mx-auto">
-            <h1 class="text-white text-center text-3xl md:text-4xl font-bold mb-8">Weather Forecast</h1>
+   <!-- Main Container -->
+    <div class="container mx-auto p-5 md:p-10">
+        <div class="bg-gray-900 rounded-xl shadow-lg p-5 md:p-10 max-w-4xl mx-auto">
+            <h1 class="text-white text-center text-3xl md:text-4xl font-bold mb-6">Weather Forecast</h1>
 
             <!-- Search Bar -->
-            <form id="form" class="flex flex-col md:flex-row justify-center items-center gap-3 mb-8">
+            <form id="form" class="flex flex-col md:flex-row justify-center items-center gap-3 mb-6">
                 <input
                     class="w-full md:w-2/3 px-4 py-3 bg-gray-700 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                     type="search" name="search" id="search" placeholder="Search By City" />
@@ -32,69 +33,50 @@
             </form>
 
             <!-- Current Weather Section -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-5 items-center mb-10">
+            <div class="flex flex-col md:flex-row items-center gap-4 mb-6">
                 <!-- Left Side -->
                 <div>
                     <p class="city text-2xl md:text-3xl font-semibold text-white">--, --</p>
                     <p class="dayname text-lg md:text-xl text-gray-400">-</p>
-                    <p class="text-4xl md:text-5xl font-semibold text-white mt-3">
+                    <p class="text-5xl font-semibold text-white mt-3">
                         <span class="temdata">--</span>&deg;C
                     </p>
                 </div>
 
                 <!-- Right Side -->
                 <div class="flex justify-center">
-                    <img src="https://openweathermap.org/img/wn/10n@2x.png" class="w-32 md:w-40" alt="" id="photoone">
+                    <img src="https://openweathermap.org/img/wn/10n@2x.png" class="w-28 md:w-40" alt="" id="photoone">
                 </div>
             </div>
 
             <!-- Weather Data Section -->
-            <div class="bg-gray-700 rounded-lg p-5 md:p-8 mb-10">
-                <p class="font-semibold text-xl md:text-2xl text-white mb-6">Weather Details</p>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-5">
-                    <!-- Humidity -->
-                    <div class="flex items-center">
-                        <i class="fas fa-tint text-xl text-blue-400 mr-2"></i>
-                        <div>
-                            <p class="text-gray-400">Humidity</p>
-                            <p class="text-lg font-semibold text-white"><span class="humadata">--</span>%</p>
-                        </div>
-                    </div>
-
-                    <!-- Wind Speed -->
-                    <div class="flex items-center">
-                        <i class="fas fa-wind text-xl text-green-400 mr-2"></i>
-                        <div>
-                            <p class="text-gray-400">Wind Speed</p>
-                            <p class="text-lg font-semibold text-white"><span class="windata">--</span> m/s</p>
-                        </div>
-                    </div>
-
-                    <!-- Pressure -->
-                    <div class="flex items-center">
-                        <i class="fas fa-tachometer-alt text-xl text-yellow-400 mr-2"></i>
-                        <div>
-                            <p class="text-gray-400">Pressure</p>
-                            <p class="text-lg font-semibold text-white"><span class="pressdata">--</span> hPa</p>
-                        </div>
-                    </div>
-
-                    <!-- Description -->
-                    <div class="flex items-center">
-                        <i class="fas fa-info-circle text-xl text-purple-400 mr-2"></i>
-                        <div>
-                            <p class="text-gray-400">Description</p>
-                            <p class="text-lg font-semibold text-white"><span class="des">--</span></p>
-                        </div>
-                    </div>
+            <div class="bg-gray-700 rounded-lg p-4 md:p-8 mb-6">
+                <p class="font-semibold text-xl text-white mb-4">Details</p>
+                <div class="flex flex-col gap-2">
+                    <p class="text-gray-400 text-sm md:text-base"><span class="font-semibold text-white">Humidity:</span>
+                        <span class="humadata">--</span>%</p>
+                    <p class="text-gray-400 text-sm md:text-base"><span class="font-semibold text-white">Wind:</span>
+                        <span class="windata">--</span> m/s</p>
+                    <p class="text-gray-400 text-sm md:text-base"><span class="font-semibold text-white">Pressure:</span>
+                        <span class="pressdata">--</span> hPa</p>
+                    <p class="text-gray-400 text-sm md:text-base"><span class="font-semibold text-white">Description:</span>
+                        <span class="des">--</span></p>
                 </div>
             </div>
 
             <!-- 5-Day Forecast Section -->
-            <div class="bg-gray-700 rounded-lg p-5 md:p-8">
-                <p class="font-semibold text-xl md:text-2xl text-white mb-6">Next 5 Days Weather</p>
-                <div class="grid grid-cols-2 md:grid-cols-5 gap-5" id="forecast">
-                    <!-- Dynamic forecast cards will appear here -->
+            <div class="bg-gray-700 rounded-lg p-4 md:p-8">
+                <p class="font-semibold text-xl text-white mb-4">Next 5 Days</p>
+                <div class="grid grid-cols-1 gap-4 md:grid-cols-5" id="forecast">
+                    <!-- Example Forecast Card -->
+                    <div
+                        class="flex flex-row items-center md:flex-col bg-gray-800 rounded-lg p-3 text-white gap-2 md:gap-4">
+                        <img src="https://openweathermap.org/img/wn/10d@2x.png" class="w-12 md:w-16" alt="forecast-icon">
+                        <div class="text-sm md:text-base">
+                            <p class="font-semibold">Mon</p>
+                            <p>25°C</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
