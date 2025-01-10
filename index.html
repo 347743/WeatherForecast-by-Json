@@ -92,12 +92,15 @@
             </div>
 
             <!-- 5-Day Forecast Section -->
-           <div class="w-full text-white bg-gray-700 rounded-lg p-5">
-            <p class="font-semibold text-xl mb-4">Next 5 Days Weather Data</p>
-            <div class="flex justify-around items-center flex-wrap gap-5" id="forecast">
-                <!-- Dynamic forecast items will appear here -->
+           <div class="flex justify-center items-center forecast">
+                <div class="w-1/5 p-1 text-center border">
+                    <p class="otherday text-xs ">Wednesday</p>
+                    <!-- Image source points to the build/images folder -->
+                    <img src="./build/images/weather-icon.png" class="" alt="">
+                    <p class="font-semibold text-lg"><span class="othertemdata">35</span>&deg;C</p>
+
+                </div>
             </div>
-        </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" type="text/javascript"></script>
