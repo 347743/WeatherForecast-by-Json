@@ -17,88 +17,71 @@
 
 <body class="bg-gray-800">
 
-   <!-- Main Container -->
-    <div class="container mx-auto p-5 md:p-10">
-        <div class="bg-gray-900 rounded-xl shadow-lg p-5 md:p-10 max-w-4xl mx-auto">
-            <h1 class="text-white text-center text-3xl md:text-4xl font-bold mb-6">Meowiee's Weather Forecast for 5(Five) Days</h1>
+    <div class="w-full max-w-lg mx-auto pt-10 bg-gray-900 p-5 rounded-xl shadow-lg">
+        <h1 class="text-white text-center text-3xl font-bold mb-5">Meowiee's Weather Forecast for Five Days</h1>
 
-            <!-- Search Bar -->
-            <form id="form" class="flex flex-col md:flex-row justify-center items-center gap-3 mb-6">
-                <input
-                    class="w-full md:w-2/3 px-4 py-3 bg-gray-700 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    type="search" name="search" id="search" placeholder="Search By City" />
-                <button
-                    class="px-6 py-3 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 focus:ring-2 focus:ring-blue-300"
-                    type="submit">Search</button>
-            </form>
+        <!-- Search Section -->
+        <form action="" id="form" method="get" class="flex mb-5 justify-center">
+            <input class="w-full px-4 py-3 bg-gray-700 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" type="search"
+                name="search" id="search" placeholder="Search By City">
+        </form>
 
-            <!-- Current Weather Section -->
-            <div class="flex flex-col md:flex-row items-center gap-4 mb-6">
-                <!-- Left Side -->
-                <div>
-                    <p class="city text-2xl md:text-3xl font-semibold text-white">--, --</p>
-                    <p class="dayname text-lg md:text-xl text-gray-400">-</p>
-                    <p class="text-5xl font-semibold text-white mt-3">
-                        <span class="temdata">--</span>&deg;C
-                    </p>
-                </div>
-
-                <!-- Right Side -->
-                <div class="flex justify-center">
-                    <img src="https://openweathermap.org/img/wn/10n@2x.png" class="w-28 md:w-40" alt="" id="photoone">
-                </div>
+        <!-- Current Weather -->
+        <div class="w-full text-white grid grid-cols-2 gap-5 mb-5">
+            <div class="px-3">
+                <p class="city text-2xl font-semibold">--, --</p>
+                <p class="dayname text-lg">-</p>
+                <p class="text-4xl font-semibold mt-3">
+                    <span class="temdata">--</span>&deg;C
+                </p>
             </div>
+            <div class="flex justify-center items-center">
+                <img src="https://openweathermap.org/img/wn/10n@2x.png" class="w-[130px]" alt="" id="photoone">
+            </div>
+        </div>
 
-            <!-- Weather Data Section -->
-            <div class="bg-gray-700 rounded-lg p-5 md:p-8 mb-10">
-                <p class="font-semibold text-xl md:text-2xl text-white mb-6">Weather Details</p>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-5">
-                    <!-- Humidity -->
-                    <div class="flex items-center">
-                        <i class="fas fa-tint text-xl text-blue-400 mr-2"></i>
-                        <div>
-                            <p class="text-gray-400">Humidity</p>
-                            <p class="text-lg font-semibold text-white"><span class="humadata">--</span>%</p>
-                        </div>
+        <!-- Weather Data -->
+        <div class="w-full text-white bg-gray-700 rounded-lg p-5 mb-5">
+            <p class="font-semibold text-xl mb-4">Weather Data</p>
+            <div class="grid grid-cols-2 gap-5">
+                <div class="flex items-center">
+                    <i class="fas fa-tint text-xl mr-2"></i>
+                    <div>
+                        <p>Humidity</p>
+                        <p class="text-lg font-semibold"><span class="humadata">--</span>%</p>
                     </div>
-
-                    <!-- Wind Speed -->
-                    <div class="flex items-center">
-                        <i class="fas fa-wind text-xl text-green-400 mr-2"></i>
-                        <div>
-                            <p class="text-gray-400">Wind Speed</p>
-                            <p class="text-lg font-semibold text-white"><span class="windata">--</span> m/s</p>
-                        </div>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-wind text-xl mr-2"></i>
+                    <div>
+                        <p>Wind Speed</p>
+                        <p class="text-lg font-semibold"><span class="windata">--</span> m/s</p>
                     </div>
-
-                    <!-- Pressure -->
-                    <div class="flex items-center">
-                        <i class="fas fa-tachometer-alt text-xl text-yellow-400 mr-2"></i>
-                        <div>
-                            <p class="text-gray-400">Pressure</p>
-                            <p class="text-lg font-semibold text-white"><span class="pressdata">--</span> hPa</p>
-                        </div>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-tachometer-alt text-xl mr-2"></i>
+                    <div>
+                        <p>Pressure</p>
+                        <p class="text-lg font-semibold"><span class="pressdata">--</span> hPa</p>
                     </div>
-
-                    <!-- Description -->
-                    <div class="flex items-center">
-                        <i class="fas fa-info-circle text-xl text-purple-400 mr-2"></i>
-                        <div>
-                            <p class="text-gray-400">Description</p>
-                            <p class="text-lg font-semibold text-white"><span class="des">--</span></p>
-                        </div>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-info-circle text-xl mr-2"></i>
+                    <div>
+                        <p>Description</p>
+                        <p class="text-lg font-semibold"><span class="des">--</span></p>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <!-- 5-Day Forecast Section -->
-           <div class="bg-gray-700 rounded-lg p-5 md:p-8">
-    <p class="font-semibold text-xl md:text-2xl text-white mb-6">5-Day Weather Forecast</p>
-    <div id="forecast" class="flex flex-wrap justify-between gap-4">
-        <!-- Dynamic forecast cards will be injected here -->
-    </div>
-</div>
-
+        <!-- 5-Day Forecast -->
+        <div class="w-full text-white bg-gray-700 rounded-lg p-5">
+            <p class="font-semibold text-xl mb-4">Next 5 Days Weather Data</p>
+            <div class="flex justify-around items-center flex-wrap gap-5" id="forecast">
+                <!-- Dynamic forecast items will appear here -->
+            </div>
+        </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" type="text/javascript"></script>
@@ -182,28 +165,23 @@
         };
 
         let getforcasttodom = (forecasts) => {
-    getforecast.innerHTML = '';
+            getforecast.innerHTML = '';
 
-    forecasts.forEach(forecast => {
-        let dayName = new Date(forecast.dt_txt).toLocaleString('en', { weekday: 'long' });
-        let temperature = `${forecast.main.temp}°C`;
-        let iconUrl = `https://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png`;
+            forecasts.forEach(forecast => {
+                let temperature = `${forecast.main.temp}°C`;
 
-        let html = `
-            <div class="flex flex-col items-center bg-gray-800 rounded-lg p-4 w-[18%] text-center shadow-md">
-                <p class="text-sm text-gray-300">${dayName}</p>
-                <img src="${iconUrl}" class="w-12 md:w-16 my-2" alt="weather-icon">
-                <p class="text-lg font-semibold text-white">${temperature}</p>
-            </div>
-        `;
-        getforecast.insertAdjacentHTML("beforeend", html);
-    });
-};
-
+                let html = `
+                    <div class="w-full p-3 text-center bg-gray-800 rounded-lg shadow-lg">
+                        <p class="text-xs text-gray-400">${new Date(forecast.dt_txt).toLocaleString('en', { weekday: 'long' })}</p>
+                        <img src="https://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png" class="w-20 mx-auto" alt="">
+                        <p class="font-semibold text-lg text-white">${temperature}</p>
+                    </div>
+                `;
+                getforecast.insertAdjacentHTML("beforeend", html);
+            });
         }
     </script>
 
 </body>
 
 </html>
-
